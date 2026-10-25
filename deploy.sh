@@ -273,10 +273,10 @@ dns:
 proxies:
   - name: "$NODE_NAME"
     type: trojan
-    server: $TROJAN_SERVER
+    server: "$TROJAN_SERVER"
     port: $TROJAN_PORT
-    password: $TROJAN_PASS
-    sni: $TROJAN_SERVER
+    password: "$TROJAN_PASS"
+    sni: "$TROJAN_SERVER"
     skip-cert-verify: true
     udp: true
     client-fingerprint: chrome
@@ -401,6 +401,7 @@ rules:
   # 兜底走代理
   - MATCH,Proxy
 CONF
+    chmod 600 /etc/mihomo/config.yaml
     log_success "配置写入完成"
 }
 
